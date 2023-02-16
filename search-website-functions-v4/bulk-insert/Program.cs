@@ -7,9 +7,9 @@ using AzureSearch.BulkInsert;
 using ServiceStack;
 
 const string BOOKS_URL = "https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv";
-const string SEARCH_ENDPOINT = "https://YOUR-SEARCH-RESOURCE-NAME.search.windows.net";
-const string SEARCH_KEY = "YOUR-SEARCH-ADMIN-KEY";
-const string SEARCH_INDEX_NAME = "good-books";
+const string SEARCH_ENDPOINT = "https://sharepointsearchwithai.search.windows.net";
+const string SEARCH_KEY = "aHR0cHM6Ly9jcHNpbWdjYXB0aW9uaW5nLmJsb2IuY29yZS53aW5kb3dzLm5ldC9kb2NzL25ld3MudHh00";
+const string SEARCH_INDEX_NAME = "azureblob-index";
 
 Uri searchEndpointUri = new(SEARCH_ENDPOINT);
 
@@ -22,8 +22,8 @@ SearchIndexClient clientIndex = new(
     searchEndpointUri,
     new AzureKeyCredential(SEARCH_KEY));
 
-await CreateIndexAsync(clientIndex);
-await BulkInsertAsync(client);
+//await CreateIndexAsync(clientIndex);
+//await BulkInsertAsync(client);
 
 static async Task CreateIndexAsync(SearchIndexClient clientIndex)
 {
